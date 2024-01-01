@@ -3,6 +3,9 @@ import hilog from '@ohos.hilog';
 import UIAbility from '@ohos.app.ability.UIAbility';
 import type Want from '@ohos.app.ability.Want';
 import type window from '@ohos.window';
+import { MainPage } from '@ohos/ui_library'
+
+
 
 /**
  * Lift cycle management of Ability.

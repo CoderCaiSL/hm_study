@@ -3,7 +3,7 @@ import testNapi from 'libui_library.so'
 
 @Component
 export struct MainPage {
-  @State message: string = 'Hello World'
+  @State message: string = 'Hello World2'
 
   build() {
     Row() {

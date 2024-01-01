@@ -4,6 +4,7 @@ import { AppInfoComponent } from '../view/AppInfoComponent';
 import { LogoAndVersionComponent } from '../view/LogoAndVersionComponent';
 import { CommonConstants } from '../common/constants/CommonConstants';
 import AboutViewModel from '../viewmodel/AboutViewModel';
+import { MainPage } from '@ohos/ui_library'
 
 /**
  * This template implements the about function and contains three components.
@@ -19,63 +20,63 @@ struct AboutPage {
   build() {
     Column() {
       this.Title()
-
-      Scroll() {
-        GridRow({
-          columns: {
-            sm: CommonConstants.GRID_ROW_SM,
-            md: CommonConstants.GRID_ROW_MD,
-            lg: CommonConstants.GRID_ROW_LG
-          },
-          gutter: { x: CommonConstants.GUTTER_X },
-          breakpoints: { value: CommonConstants.BREAK_POINT }
-        }) {
-          GridCol({
-            span: {
-              sm: CommonConstants.SPAN_SM,
-              md: CommonConstants.SPAN_MD,
-              lg: CommonConstants.SPAN_LG
-            },
-            offset: {
-              sm: CommonConstants.OFFSET_SM,
-              md: CommonConstants.OFFSET_MD,
-              lg: CommonConstants.OFFSET_LG
-            }
-          }) {
-            Column() {
-              Row() {
-                LogoAndVersionComponent()
-              }
-              .layoutWeight(this.currentBreakPoint === CommonConstants.BREAK_POINT_LG ?
-                CommonConstants.ROW_LG_WEIGHT : CommonConstants.ROW_WEIGHT)
-
-              Flex({
-                direction: FlexDirection.Column,
-                justifyContent: FlexAlign.SpaceBetween
-              }) {
-                AppInfoComponent({
-                  appInfoData: AboutViewModel.getAppInfo()
-                })
-
-                TechSupportComponent()
-              }
-              .layoutWeight(this.currentBreakPoint === CommonConstants.BREAK_POINT_LG ?
-                CommonConstants.FLEX_LG_WEIGHT : CommonConstants.FLEX_WEIGHT)
-            }
-          }
-        }
-        .onBreakpointChange(point => {
-          this.currentBreakPoint = point;
-        })
-        .margin({
-          left: $r('app.float.grid_row_margin_left'),
-          right: $r('app.float.grid_row_margin_right')
-        })
-        .height(CommonConstants.SCROLL_HEIGHT_PERCENT)
-        .constraintSize({ minHeight: $r('app.float.scroll_min_height') })
-      }
-      .scrollBar(BarState.Off)
-      .layoutWeight(CommonConstants.SCROLL_WEIGHT)
+      MainPage()
+      // Scroll() {
+      //   GridRow({
+      //     columns: {
+      //       sm: CommonConstants.GRID_ROW_SM,
+      //       md: CommonConstants.GRID_ROW_MD,
+      //       lg: CommonConstants.GRID_ROW_LG
+      //     },
+      //     gutter: { x: CommonConstants.GUTTER_X },
+      //     breakpoints: { value: CommonConstants.BREAK_POINT }
+      //   }) {
+      //     GridCol({
+      //       span: {
+      //         sm: CommonConstants.SPAN_SM,
+      //         md: CommonConstants.SPAN_MD,
+      //         lg: CommonConstants.SPAN_LG
+      //       },
+      //       offset: {
+      //         sm: CommonConstants.OFFSET_SM,
+      //         md: CommonConstants.OFFSET_MD,
+      //         lg: CommonConstants.OFFSET_LG
+      //       }
+      //     }) {
+      //       Column() {
+      //         Row() {
+      //           LogoAndVersionComponent()
+      //         }
+      //         .layoutWeight(this.currentBreakPoint === CommonConstants.BREAK_POINT_LG ?
+      //           CommonConstants.ROW_LG_WEIGHT : CommonConstants.ROW_WEIGHT)
+      //
+      //         Flex({
+      //           direction: FlexDirection.Column,
+      //           justifyContent: FlexAlign.SpaceBetween
+      //         }) {
+      //           AppInfoComponent({
+      //             appInfoData: AboutViewModel.getAppInfo()
+      //           })
+      //
+      //           TechSupportComponent()
+      //         }
+      //         .layoutWeight(this.currentBreakPoint === CommonConstants.BREAK_POINT_LG ?
+      //           CommonConstants.FLEX_LG_WEIGHT : CommonConstants.FLEX_WEIGHT)
+      //       }
+      //     }
+      //   }
+      //   .onBreakpointChange(point => {
+      //     this.currentBreakPoint = point;
+      //   })
+      //   .margin({
+      //     left: $r('app.float.grid_row_margin_left'),
+      //     right: $r('app.float.grid_row_margin_right')
+      //   })
+      //   .height(CommonConstants.SCROLL_HEIGHT_PERCENT)
+      //   .constraintSize({ minHeight: $r('app.float.scroll_min_height') })
+      // }
+      // .scrollBar(BarState.Off)
+      // .layoutWeight(CommonConstants.SCROLL_WEIGHT)
     }
     .backgroundColor($r('app.color.page_background'))
   }
