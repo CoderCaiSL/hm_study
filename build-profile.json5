@@ -23,5 +23,8 @@
         }
       ]
     }
-  ]
+  ,{
+      "name": "ui_library",
+      "srcPath": "./ui_library"
+    }]
 }
